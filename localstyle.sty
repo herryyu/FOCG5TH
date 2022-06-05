@@ -1,4 +1,4 @@
-% Fijiisland
+% INRAINBOWS
 % 2022-06-05
 % 该样式包参考了lshort-zh-cn-style.sty的编排。
 \ProvidesPackage{localstyle}
@@ -49,6 +49,7 @@
 % color
 %
 %
+\definecolor{mygreen}{rgb}{0.33,0.5,0.31}   % 绿色
 \definecolor{myred}{rgb}{0.51,0.0,0.07}     % 红色
 \definecolor{boldred}{rgb}{0.51,0.094,0.1}  % 深红
 %
@@ -97,6 +98,7 @@
 \newcommand{\textittt}[1]{\textit{\texttt{#1}}}                     % 等宽斜体       
 \newcommand{\textbftt}[1]{\textbf{\texttt{#1}}}                     % 等宽粗体  
 \newcommand{\redtxt}[1]{{\textcolor{myred}{#1}}}                    % 红色文本
+\newcommand{\greentxt}[1]{{\textcolor{mygreen}{#1}}}                % 绿色文本
 \newcommand{\reditxt}[1]{\redtxt{\textit{#1}}}                      % 红色斜体文本
 \newcommand{\mksec}[1]{\textcolor{boldred}{\section{#1}}}           % 创建节标题
 \newcommand{\mkpar}[1]{\par\vspace{#1ex}}                           % 增加一个垂直间隔
