@@ -1,0 +1,130 @@
+% Fijiisland
+% 2022-06-05
+% 该样式包参考了lshort-zh-cn-style.sty的编排。
+\ProvidesPackage{localstyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% localstyle 调用的宏包
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% ctex 宏包 2.2(2015/06/24) 或以上版本
+% ctex 宏包的字号设定会让许多固定字号的字体宏包报太多 warning，应当抑制
+% 中文正文字体使用 fandol
+%
+%
+\RequirePackage[zihao=false, scheme=chinese]{ctex}[2015/06/24]
+%\RequirePackage[zihao=false, scheme=chinese, fontset=fandol]{ctex}[2015/06/24]
+%
+%
+% 基本工具宏包
+%
+%
+\RequirePackage{fontspec}            % 字体处理
+\RequirePackage{xeCJK}               % 中文字体处理
+\RequirePackage{geometry}            % 行间距
+\RequirePackage{color}               % 设置颜色
+\RequirePackage{xcolor}              % 高级颜色
+\RequirePackage{minted}              % 代码高亮
+\RequirePackage{graphicx}            % 插图
+\RequirePackage{caption}             % 说明文字
+\RequirePackage{tabularx}            % 表格自动换行
+\RequirePackage{booktabs}            % 表格线
+\RequirePackage{makecell}            % 表格内换行
+\RequirePackage{supertabular}        % 跨页表格
+\RequirePackage{hyperref}            % 超链接
+%
+%
+% hypererf
+%
+%
+\hypersetup{
+    CJKbookmarks=true, % 中文书签支持
+    colorlinks = true,
+    linkcolor = black,
+    breaklinks = true
+}
+%
+%
+% color
+%
+%
+\definecolor{myred}{rgb}{0.51,0.0,0.07}     % 红色
+\definecolor{boldred}{rgb}{0.51,0.094,0.1}  % 深红
+%
+%
+% fontspec
+%
+%
+\setmainfont{Egyptian Slate Pro}
+\setmonofont{Courier New}
+\newfontface{\kannadafont}{KannadaSangamMN} % 添加Kannada字体
+%
+%
+% xeCJK
+%
+%
+\xeCJKsetup{AutoFallBack=true} % 遇到生僻字用后备字体进行输出
+\setCJKmainfont{思源宋体 CN}
+%
+%
+% minted
+%
+%
+\setminted{fontsize=\footnotesize,baselinestretch=1}   % 代码字体大小，行间距
+\usemintedstyle{friendly}
+%
+%
+% graphicx
+%
+%
+\graphicspath{{figures/}}
+%
+%
+% caption
+%
+%
+\captionsetup{font=footnotesize,skip=5pt,labelsep=period}
+%
+%
+% 定义
+%
+%
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}}              % 图片编号格式指定
+\renewcommand{\thetable}{\thechapter-\arabic{table}}                % 表格编号格式指定
+\newcommand{\mkref}[2]{\hyperref[#1]{\redtxt{#2}}}                  % 创建label超链接
+\newcommand{\mkuref}[2]{\href{#1}{\redtxt{#2}}}                     % 创建url超链接
+\newcommand{\textittt}[1]{\textit{\texttt{#1}}}                     % 等宽斜体       
+\newcommand{\textbftt}[1]{\textbf{\texttt{#1}}}                     % 等宽粗体  
+\newcommand{\redtxt}[1]{{\textcolor{myred}{#1}}}                    % 红色文本
+\newcommand{\reditxt}[1]{\redtxt{\textit{#1}}}                      % 红色斜体文本
+\newcommand{\mksec}[1]{\textcolor{boldred}{\section{#1}}}           % 创建节标题
+\newcommand{\mkpar}[1]{\par\vspace{#1ex}}                           % 增加一个垂直间隔
+\newcommand{\mknote}[1]{\begin{center}                              % 创建一个note
+    \fbox{\begin{minipage}{37em}
+        \begin{center}
+            \textbf{{\color[gray]{0.4}{\LARGE 批注}}}
+            \begin{flushleft}
+                #1
+            \end{flushleft}
+        \end{center}
+    \end{minipage}}
+\end{center}}
+%
+%
+% 页面细节样式
+%
+%            
+\setcounter{secnumdepth}{0}         % 不显示章节编号
+\setlength{\fboxsep}{1.2em}         % 水平边框Box内边距
+\setlength{\parindent}{0pt}         % 段首行缩进为0
+\linespread{1.2}                    % 行间距为1.2*1.2
+\geometry{inner=1in,outer=1.25in}   % 靠近书脊边距较小，适合书籍等双面文档
+%
+%
+% titlepage
+%
+%
+\title{PROJECT FOCG5TH}
+\author{Translated by Hengyiyu}
+\date{\today}
